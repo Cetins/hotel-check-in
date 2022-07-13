@@ -20,11 +20,20 @@ const BookingContainer = () => {
         setBookings(updatedBookings);
     }
 
+    const removeBooking = (id) => {
+        const temp = bookings.map(booking => booking);
+        const indexToDel = temp.map(booking => booking._id).indexOf(id);
+        console.log(indexToDel);
+        
+        temp.splice(indexToDel, 1);
+        setBookings(temp);
+    }
+
     return (
         <div>
             <h1>Bookings</h1>
             <BookingForm addBooking={addBooking}/>
-            <BookingList bookings={bookings}/>
+            <BookingList removeBooking={removeBooking} bookings={bookings}/>
         </div>
     )
 }

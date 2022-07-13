@@ -14,8 +14,10 @@ export const postBooking = (payload) => {
     .then(res => res.json())
 }
 
-export const deleteBooking = () => {
-
+export const deleteBooking = (id) => {
+  return fetch(baseURL + id, {
+    method: 'DELETE'
+  })
 }
 
 export const updateBooking = () => {
