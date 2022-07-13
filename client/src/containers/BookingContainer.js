@@ -29,6 +29,17 @@ const BookingContainer = () => {
         setBookings(temp);
     }
 
+    const toggleBooking = (id) => {
+        const temp = bookings.map(booking => booking);
+        const indexToEdit = temp.map(booking => booking._id).indexOf(id);
+
+        if (temp[indexToEdit].isChecked === true) {
+            temp[indexToEdit].isChecked = false 
+        } else {
+            temp[indexToEdit].isChecked = true
+        }
+    }
+
     return (
         <div>
             <h1>Bookings</h1>
